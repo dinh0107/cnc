@@ -1,0 +1,10 @@
+---
+description: HTML markup conventions for the CNC theme
+globs: **/*.html
+alwaysApply: true
+---
+
+# HTML conventions
+
+- Never add `class` (or other styling hooks) on `<body>`. Scope page-specific styles via wrapper elements (e.g. `<main class="network-page">`, section classes).
+- Keep one `<header>` and one `<footer>` per page. Do not use `<footer>` for non-site-footer blocks (e.g. testimonial cards).

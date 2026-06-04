@@ -1,0 +1,60 @@
+@import 'abstracts';
+@import 'homepage';
+@import 'network-page';
+@import 'partners-page';
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    @include Regular();
+    color: #121212;
+    overflow-x: hidden;
+    top: 0 !important;
+}
+
+.container {
+    width: 100%;
+    max-width: $container-max;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-pad;
+    padding-right: $container-pad;
+
+    @media (min-width: 768px) {
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        width: 100%;
+    }
+
+    @media (min-width: 1200px) {
+        width: 100%;
+        max-width: $container-max;
+    }
+
+    @include maxWidth(1366px) {
+        max-width: 1230px;
+    }
+
+    @include maxWidth(1100px) {
+        max-width: 1090px;
+    }
+
+    @include maxWidth(768px) {
+        max-width: 764px;
+    }
+}
+
+.ul-reset {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+        outline: none;
+    }
+}
