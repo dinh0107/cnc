@@ -7,8 +7,6 @@
     <title>Mạng lưới hoạt động — CNC Industrial</title>
     <meta name="description"
         content="Mạng lưới trụ sở và dự án CNC Industrial trên toàn quốc — khu công nghiệp, logistics và hạ tầng công nghiệp.">
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=mona-sans@400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style/all.css" rel="stylesheet">
@@ -28,18 +26,70 @@
                             <i class="fa-regular fa-magnifying-glass"></i>
                         </button>
                         <span class="site-header__vsep"></span>
-                        <button type="button" class="site-header__lang">
-                            <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
-                            <span class="site-header__lang-label">VN</span>
-                        </button>
-                        <a class="site-header__cta" href="index.html#lien-he">Đặt lịch tham quan</a>
+                        <div class="dropdown site-header__lang">
+                            <button type="button" class="site-header__lang-toggle dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
+                                <span class="site-header__lang-label">VN</span>
+                            </button>
+                            <ul class="dropdown-menu site-header__lang-menu">
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option is-active" href="#">
+                                        <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
+                                            alt="">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option" href="#">
+                                        <img class="site-header__lang-flag" src="images/english.png" width="20" height="20"
+                                            alt="">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="site-header__cta" href="lien-he.html">Đặt lịch tham quan</a>
                     </div>
-                    <nav class="navbar navbar-expand-lg p-0 w-100">
-                        <button class="navbar-toggler ms-auto border-0 shadow-none" type="button"
-                            data-bs-toggle="collapse" data-bs-target=".main-nav">
+                    <div class="site-header__mobile-bar d-flex d-lg-none align-items-center">
+                        <button type="button" class="site-header__search">
+                            <i class="fa-regular fa-magnifying-glass"></i>
+                        </button>
+                        <span class="site-header__vsep"></span>
+                        <div class="dropdown site-header__lang">
+                            <button type="button" class="site-header__lang-toggle dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
+                                <span class="site-header__lang-label">VN</span>
+                            </button>
+                            <ul class="dropdown-menu site-header__lang-menu">
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option is-active" href="#">
+                                        <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
+                                            alt="">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option" href="#">
+                                        <img class="site-header__lang-flag" src="images/english.png" width="20" height="20"
+                                            alt="">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="site-header__menu-toggle navbar-toggler border-0 shadow-none" type="button"
+                            data-bs-toggle="collapse" data-bs-target=".main-nav" aria-label="Menu">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                    </div>
+                    <nav class="navbar navbar-expand-lg p-0">
                         <div class="collapse navbar-collapse justify-content-lg-end main-nav">
+                            <button type="button" class="site-header__nav-close d-lg-none" data-bs-toggle="collapse"
+                                data-bs-target=".main-nav" aria-label="Đóng menu">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                             <ul class="navbar-nav site-header__nav ul-reset justify-content-lg-end">
                                 <li class="nav-item dropdown nav-item--dropdown">
                                     <a class="nav-link dropdown-toggle active" href="#" role="button"
@@ -105,19 +155,15 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">Dự án <i
                                             class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">KCN Nam Bình Xuyên Green
+                                        <li><a class="site-header__submenu-link" href="kcn-nam-binh-xuyen-green-park.html">KCN Nam Bình Xuyên Green
                                                 Park</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">CNCTech Bá Thiện 1</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">TT Logistics quốc tế Bắc
-                                                Giang</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">KCN Thăng Long 3</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Khu công nghiệp Bình
-                                                Xuyên</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Khu công nghiệp Thăng Long
-                                                2</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Hà Nam IC</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Cụm công nghiệp Hợp Thịnh</a>
-                                        </li>
+                                        <li><a class="site-header__submenu-link" href="cnctech-ba-thien-1.html">CNCTech Bá Thiện 1</a></li>
+                                        <li><a class="site-header__submenu-link" href="tt-logistics-bac-giang.html">TT Logistics quốc tế Bắc Giang</a></li>
+                                        <li><a class="site-header__submenu-link" href="kcn-thang-long-3.html">KCN Thăng Long 3</a></li>
+                                        <li><a class="site-header__submenu-link" href="khu-cong-nghiep-binh-xuyen.html">Khu công nghiệp Bình Xuyên</a></li>
+                                        <li><a class="site-header__submenu-link" href="kcn-thang-long-2.html">Khu công nghiệp Thăng Long 2</a></li>
+                                        <li><a class="site-header__submenu-link" href="cnctech-ha-nam.html">Hà Nam IC</a></li>
+                                        <li><a class="site-header__submenu-link" href="cum-cong-nghiep-hop-thinh.html">Cụm công nghiệp Hợp Thịnh</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown nav-item--dropdown">
@@ -125,7 +171,10 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">Tin tức <i
                                             class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">Tin công nghiệp</a></li>
+                                        <li><a class="site-header__submenu-link"
+                                                href="tin-tuc-doanh-nghiep.html">Tin tức doanh nghiệp</a></li>
+                                        <li><a class="site-header__submenu-link" href="#">Tin dự án</a></li>
+                                        <li><a class="site-header__submenu-link" href="#">Sự kiện</a></li>
                                         <li><a class="site-header__submenu-link site-header__submenu-link--group"
                                                 href="https://cnctech.com.vn" target="_blank"
                                                 rel="noopener noreferrer">Tin tức sự kiện</a></li>
@@ -142,26 +191,16 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">Tài nguyên <i
                                             class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">Cẩm nang đầu tư</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Nghiên cứu thị trường</a>
+                                        <li><a class="site-header__submenu-link" href="cam-nang-dau-tu.html">Cẩm nang đầu tư</a></li>
+                                        <li><a class="site-header__submenu-link" href="nghien-cuu-thi-truong.html">Nghiên cứu thị trường</a>
                                         </li>
-                                        <li><a class="site-header__submenu-link" href="#">Thư viện hình ảnh</a></li>
+                                        <li><a class="site-header__submenu-link" href="thu-vien-anh.html">Thư viện hình ảnh</a></li>
                                     </ul>
                                 </li>
                             </ul>
-                            <div class="site-header__tools d-flex d-lg-none mt-3 pt-3 border-top">
-                                <button type="button" class="site-header__search">
-                                    <i class="fa-regular fa-magnifying-glass"></i>
-                                </button>
-                                <span class="site-header__vsep"></span>
-                                <button type="button" class="site-header__lang">
-                                    <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
-                                        alt="">
-                                    <span class="site-header__lang-label">VN</span>
-                                </button>
-                                <a class="site-header__cta ms-auto" href="index.html#lien-he">Đặt lịch tham quan</a>
-                            </div>
-                        </div>
+                            <div class="site-header__mobile-cta d-lg-none mt-3 pt-3 border-top">
+                                <a class="site-header__cta" href="lien-he.html">Đặt lịch tham quan</a>
+                            </div></div>
                     </nav>
                 </div>
             </div>
@@ -171,7 +210,6 @@
     <section class="page-hero">
         <img class="page-hero__media" src="images/banner-mang-luoi.jpg" width="1920" height="756"
             alt="">
-        <div class="page-hero__overlay" aria-hidden="true"></div>
         <div class="page-hero__content">
             <div class="container">
                 <nav class="page-hero__breadcrumb-nav" aria-label="Breadcrumb">
@@ -502,21 +540,22 @@
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">dự án</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">KCN Nam Bình Xuyên Green Park</a></li>
-                            <li><a href="#">TT Logistics quốc tế Bắc Giang</a></li>
-                            <li><a href="#">CNCTech Bá Thiện 1</a></li>
-                            <li><a href="#">Cụm CN Hợp Thịnh</a></li>
-                            <li><a href="#">Hà Nam IC</a></li>
-                            <li><a href="#">KCN Bình Xuyên</a></li>
-                            <li><a href="#">KCN Thăng Long 2</a></li>
-                            <li><a href="#">KCN Thăng Long 3</a></li>
+                            <li><a href="kcn-nam-binh-xuyen-green-park.html">KCN Nam Bình Xuyên Green Park</a></li>
+                            <li><a href="tt-logistics-bac-giang.html">TT Logistics quốc tế Bắc Giang</a></li>
+                            <li><a href="cnctech-ba-thien-1.html">CNCTech Bá Thiện 1</a></li>
+                            <li><a href="cum-cong-nghiep-hop-thinh.html">Cụm công nghiệp Hợp Thịnh</a></li>
+                            <li><a href="cnctech-ha-nam.html">CNCTech Hà Nam</a></li>
+                            <li><a href="khu-cong-nghiep-binh-xuyen.html">Khu công nghiệp Bình Xuyên</a></li>
+                            <li><a href="kcn-thang-long-2.html">Khu công nghiệp Thăng Long 2</a></li>
+                            <li><a href="kcn-thang-long-3.html">KCN Thăng Long 3</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">Tin tức</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">Tin công nghiệp</a></li>
-                            <li><a href="#">Tin tức sự kiện</a></li>
+                            <li><a href="tin-tuc-doanh-nghiep.html">Tin tức doanh nghiệp</a></li>
+                            <li><a href="#">Tin dự án</a></li>
+                            <li><a href="#">Sự kiện</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md-4 col-lg px-2">
@@ -528,9 +567,9 @@
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">Tài nguyên</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">Cẩm nang đầu tư</a></li>
-                            <li><a href="#">Nghiên cứu thị trường</a></li>
-                            <li><a href="#">Thư viện hình ảnh</a></li>
+                            <li><a href="cam-nang-dau-tu.html">Cẩm nang đầu tư</a></li>
+                            <li><a href="nghien-cuu-thi-truong.html">Nghiên cứu thị trường</a></li>
+                            <li><a href="thu-vien-anh.html">Thư viện hình ảnh</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -547,6 +586,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site-header-mobile-nav.js"></script>
 </body>
 
 </html>

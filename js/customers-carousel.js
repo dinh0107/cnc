@@ -7,6 +7,9 @@
 
     if ($logos.length) {
         $logos.owlCarousel({
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 5000,
             loop: true,
             margin: 16,
             nav: false,
@@ -42,6 +45,9 @@
     }
 
     $carousel.owlCarousel({
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplayTimeout: 5000,
         loop: true,
         margin: 16,
         nav: false,

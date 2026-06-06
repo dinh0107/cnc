@@ -6,5 +6,22 @@ alwaysApply: true
 
 # HTML conventions
 
-- Never add `class` (or other styling hooks) on `<body>`. Scope page-specific styles via wrapper elements (e.g. `<main class="network-page">`, section classes).
+- Never add `class` (or other styling hooks) on `<body>`. Scope page-specific styles via wrapper elements (e.g. `<main class="network-page">`, block wrapper classes).
+- **Do not use `<section>`.** Use `<div>` with a descriptive BEM/block class instead (e.g. `<div class="page-hero">`, `<div class="section about-stats">`, `<main class="news-page">`). When editing existing pages, replace `<section>` with `<div>` only if the user asks or the task touches that markup.
 - Keep one `<header>` and one `<footer>` per page. Do not use `<footer>` for non-site-footer blocks (e.g. testimonial cards).
+- Do not add `width` or `height` on `<img>`. Size photos and thumbnails with CSS (wrapper or BEM class).
+- **Reuse existing classes before writing new ones.** Prefer shared typography/layout utilities already in the theme (e.g. `t-heading-1`, `t-body`, `section--news__title`, `news-card`) and only add page-specific BEM when no match exists. Do not duplicate the same font-size, color, or spacing in new SCSS if an existing class already covers it.
+- **CMS / rich-text wrappers** (e.g. `news-article__content`): keep inner markup plain (`<p>`, `<ul>`, `<figure>`, `<img>`) without extra classes. Style only the wrapper; typical minimum is `img { max-width: 100%; }` so editor output stays unstyled.
+- Prefer existing components before creating new markup.
+- Do not duplicate card, hero, CTA, grid, news, or form patterns.
+- If a similar component exists, extend it rather than creating a new variation.
+
+
+# Figma Asset Conventions
+
+* When implementing a design from Figma, always download images from the Figma Export panel.
+* Do not copy images from the Figma Assets panel.
+* Do not use screenshots of the design as image assets.
+* Export images at the appropriate resolution and format (PNG, JPG, SVG, WebP) directly from Figma.
+* Use the exported files in the project and keep naming consistent with the design handoff when possible.
+* If an image is not available in the Export panel, ask for clarification instead of using a different asset.

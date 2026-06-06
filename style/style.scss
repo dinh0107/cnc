@@ -2,6 +2,16 @@
 @import 'homepage';
 @import 'network-page';
 @import 'partners-page';
+@import 'news-page';
+@import 'news-detail';
+@import 'handbook-page';
+@import 'handbook-doc';
+@import 'market-page';
+@import 'market-detail';
+@import 'gallery-page';
+@import 'contact-page';
+@import 'project-detail';
+@import 'responsive';
 
 html {
     scroll-behavior: smooth;
@@ -57,4 +67,13 @@ body {
         list-style: none;
         outline: none;
     }
+}
+
+.page-item:first-child .page-link{
+    border-top-left-radius:32px;
+    border-bottom-left-radius:32px;
+}
+.page-item:last-child .page-link{
+    border-top-right-radius:32px;
+    border-bottom-right-radius:32px;
 }

@@ -7,6 +7,9 @@
     }
 
     $carousel.owlCarousel({
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplayTimeout: 5000,
         loop: true,
         margin: 16,
         nav: false,

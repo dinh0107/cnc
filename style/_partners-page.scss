@@ -1,4 +1,4 @@
-// ——— Inner page: Đối tác & khách hàng (Figma 323:3619) ———
+// ——— Đối tác & khách hàng ———
 
 .partners-page {
     &__stories {
@@ -41,17 +41,33 @@
 .customer-feature {
     align-items: stretch;
 
-    &__media {
+    &__media-wrap {
+        border-radius: 16px;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+
+        &.is-playing {
+            cursor: default;
+
+            .customer-feature__video {
+                display: block;
+            }
+        }
+    }
+
+    &__poster,
+    &__video {
         border-radius: 16px;
         display: block;
         height: 380px;
         object-fit: cover;
-        position: relative;
         width: 100%;
     }
 
-    &__media-wrap {
-        position: relative;
+    &__video {
+        background: #000;
+        display: none;
     }
 
     &__play {

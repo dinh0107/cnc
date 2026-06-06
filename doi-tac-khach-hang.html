@@ -7,12 +7,9 @@
     <title>Đối tác &amp; khách hàng — CNC Industrial</title>
     <meta name="description"
         content="Đối tác và khách hàng CNC Industrial — câu chuyện thành công và mạng lưới đối tác tin cậy toàn cầu.">
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=mona-sans@400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         rel="stylesheet">
     <link href="style/all.css" rel="stylesheet">
@@ -32,18 +29,70 @@
                             <i class="fa-regular fa-magnifying-glass"></i>
                         </button>
                         <span class="site-header__vsep"></span>
-                        <button type="button" class="site-header__lang">
-                            <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
-                            <span class="site-header__lang-label">VN</span>
-                        </button>
-                        <a class="site-header__cta" href="index.html#lien-he">Đặt lịch tham quan</a>
+                        <div class="dropdown site-header__lang">
+                            <button type="button" class="site-header__lang-toggle dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
+                                <span class="site-header__lang-label">VN</span>
+                            </button>
+                            <ul class="dropdown-menu site-header__lang-menu">
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option is-active" href="#">
+                                        <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
+                                            alt="">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option" href="#">
+                                        <img class="site-header__lang-flag" src="images/english.png" width="20" height="20"
+                                            alt="">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="site-header__cta" href="lien-he.html">Đặt lịch tham quan</a>
                     </div>
-                    <nav class="navbar navbar-expand-lg p-0 w-100">
-                        <button class="navbar-toggler ms-auto border-0 shadow-none" type="button"
-                            data-bs-toggle="collapse" data-bs-target=".main-nav">
+                    <div class="site-header__mobile-bar d-flex d-lg-none align-items-center">
+                        <button type="button" class="site-header__search">
+                            <i class="fa-regular fa-magnifying-glass"></i>
+                        </button>
+                        <span class="site-header__vsep"></span>
+                        <div class="dropdown site-header__lang">
+                            <button type="button" class="site-header__lang-toggle dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20" alt="">
+                                <span class="site-header__lang-label">VN</span>
+                            </button>
+                            <ul class="dropdown-menu site-header__lang-menu">
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option is-active" href="#">
+                                        <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
+                                            alt="">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item site-header__lang-option" href="#">
+                                        <img class="site-header__lang-flag" src="images/english.png" width="20" height="20"
+                                            alt="">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="site-header__menu-toggle navbar-toggler border-0 shadow-none" type="button"
+                            data-bs-toggle="collapse" data-bs-target=".main-nav" aria-label="Menu">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                    </div>
+                    <nav class="navbar navbar-expand-lg p-0">
                         <div class="collapse navbar-collapse justify-content-lg-end main-nav">
+                            <button type="button" class="site-header__nav-close d-lg-none" data-bs-toggle="collapse"
+                                data-bs-target=".main-nav" aria-label="Đóng menu">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                             <ul class="navbar-nav site-header__nav ul-reset justify-content-lg-end">
                                 <li class="nav-item dropdown nav-item--dropdown">
                                     <a class="nav-link dropdown-toggle active" href="#" role="button"
@@ -81,9 +130,8 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown nav-item--dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Dịch vụ <i
-                                            class="fa-solid fa-chevron-down"></i></a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Dịch vụ <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
                                         <li><a class="site-header__submenu-link" href="index.html#dich-vu">Giải pháp hạ
                                                 tầng khu công nghiệp</a></li>
@@ -105,31 +153,27 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown nav-item--dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Dự án <i
-                                            class="fa-solid fa-chevron-down"></i></a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Dự án <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">KCN Nam Bình Xuyên Green
-                                                Park</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">CNCTech Bá Thiện 1</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">TT Logistics quốc tế Bắc
-                                                Giang</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">KCN Thăng Long 3</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Khu công nghiệp Bình
-                                                Xuyên</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Khu công nghiệp Thăng Long
-                                                2</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Hà Nam IC</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Cụm công nghiệp Hợp Thịnh</a>
-                                        </li>
+                                        <li><a class="site-header__submenu-link" href="kcn-nam-binh-xuyen-green-park.html">KCN Nam Bình Xuyên Green Park</a></li>
+                                        <li><a class="site-header__submenu-link" href="cnctech-ba-thien-1.html">CNCTech Bá Thiện 1</a></li>
+                                        <li><a class="site-header__submenu-link" href="tt-logistics-bac-giang.html">TT Logistics quốc tế Bắc Giang</a></li>
+                                        <li><a class="site-header__submenu-link" href="kcn-thang-long-3.html">KCN Thăng Long 3</a></li>
+                                        <li><a class="site-header__submenu-link" href="khu-cong-nghiep-binh-xuyen.html">Khu công nghiệp Bình Xuyên</a></li>
+                                        <li><a class="site-header__submenu-link" href="kcn-thang-long-2.html">Khu công nghiệp Thăng Long 2</a></li>
+                                        <li><a class="site-header__submenu-link" href="cnctech-ha-nam.html">Hà Nam IC</a></li>
+                                        <li><a class="site-header__submenu-link" href="cum-cong-nghiep-hop-thinh.html">Cụm công nghiệp Hợp Thịnh</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown nav-item--dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Tin tức <i
-                                            class="fa-solid fa-chevron-down"></i></a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Tin tức <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">Tin công nghiệp</a></li>
+                                        <li><a class="site-header__submenu-link"
+                                                href="tin-tuc-doanh-nghiep.html">Tin tức doanh nghiệp</a></li>
+                                        <li><a class="site-header__submenu-link" href="#">Tin dự án</a></li>
+                                        <li><a class="site-header__submenu-link" href="#">Sự kiện</a></li>
                                         <li><a class="site-header__submenu-link site-header__submenu-link--group"
                                                 href="https://cnctech.com.vn" target="_blank"
                                                 rel="noopener noreferrer">Tin tức sự kiện</a></li>
@@ -142,30 +186,19 @@
                                     <a class="nav-link" href="index.html#tuyen-dung">Cơ hội nghề nghiệp</a>
                                 </li>
                                 <li class="nav-item dropdown nav-item--dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Tài nguyên <i
-                                            class="fa-solid fa-chevron-down"></i></a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Tài nguyên <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu site-header__submenu">
-                                        <li><a class="site-header__submenu-link" href="#">Cẩm nang đầu tư</a></li>
-                                        <li><a class="site-header__submenu-link" href="#">Nghiên cứu thị trường</a>
+                                        <li><a class="site-header__submenu-link" href="cam-nang-dau-tu.html">Cẩm nang đầu tư</a></li>
+                                        <li><a class="site-header__submenu-link" href="nghien-cuu-thi-truong.html">Nghiên cứu thị trường</a>
                                         </li>
-                                        <li><a class="site-header__submenu-link" href="#">Thư viện hình ảnh</a></li>
+                                        <li><a class="site-header__submenu-link" href="thu-vien-anh.html">Thư viện hình ảnh</a></li>
                                     </ul>
                                 </li>
                             </ul>
-                            <div class="site-header__tools d-flex d-lg-none mt-3 pt-3 border-top">
-                                <button type="button" class="site-header__search">
-                                    <i class="fa-regular fa-magnifying-glass"></i>
-                                </button>
-                                <span class="site-header__vsep"></span>
-                                <button type="button" class="site-header__lang">
-                                    <img class="site-header__lang-flag" src="images/vietnam.svg" width="20" height="20"
-                                        alt="">
-                                    <span class="site-header__lang-label">VN</span>
-                                </button>
-                                <a class="site-header__cta ms-auto" href="index.html#lien-he">Đặt lịch tham quan</a>
-                            </div>
-                        </div>
+                            <div class="site-header__mobile-cta d-lg-none mt-3 pt-3 border-top">
+                                <a class="site-header__cta" href="lien-he.html">Đặt lịch tham quan</a>
+                            </div></div>
                     </nav>
                 </div>
             </div>
@@ -174,7 +207,6 @@
 
     <section class="page-hero">
         <img class="page-hero__media" src="images/customers/khach-hang-banner.jpg" alt="">
-        <div class="page-hero__overlay" aria-hidden="true"></div>
         <div class="page-hero__content">
             <div class="container">
                 <nav class="page-hero__breadcrumb-nav" aria-label="Breadcrumb">
@@ -292,8 +324,12 @@
                 <div class="row customer-feature g-4 g-xl-5 align-items-stretch">
                     <div class="col-lg-6">
                         <div class="customer-feature__media-wrap">
-                            <img class="customer-feature__media" src="images/partners/story-video.jpg" width="645"
+                            <img class="customer-feature__poster" src="images/partners/story-video.jpg" width="645"
                                 height="380" alt="">
+                            <video class="customer-feature__video" playsinline controls preload="metadata"
+                                poster="images/partners/story-video.jpg">
+                                <source src="images/video-thuml.mp4" type="video/mp4">
+                            </video>
                             <button type="button" class="customer-feature__play" aria-label="Phát video"><i
                                     class="fa-solid fa-play"></i></button>
                         </div>
@@ -317,8 +353,12 @@
                 <div class="row customer-feature g-4 g-xl-5 align-items-stretch">
                     <div class="col-lg-6">
                         <div class="customer-feature__media-wrap">
-                            <img class="customer-feature__media" src="images/partners/story-video.jpg" width="645"
+                            <img class="customer-feature__poster" src="images/partners/story-video.jpg" width="645"
                                 height="380" alt="">
+                            <video class="customer-feature__video" playsinline controls preload="metadata"
+                                poster="images/partners/story-video.jpg">
+                                <source src="images/video-thuml.mp4" type="video/mp4">
+                            </video>
                             <button type="button" class="customer-feature__play" aria-label="Phát video"><i
                                     class="fa-solid fa-play"></i></button>
                         </div>
@@ -343,8 +383,12 @@
                 <div class="row customer-feature g-4 g-xl-5 align-items-stretch">
                     <div class="col-lg-6">
                         <div class="customer-feature__media-wrap">
-                            <img class="customer-feature__media" src="images/partners/story-video.jpg" width="645"
+                            <img class="customer-feature__poster" src="images/partners/story-video.jpg" width="645"
                                 height="380" alt="">
+                            <video class="customer-feature__video" playsinline controls preload="metadata"
+                                poster="images/partners/story-video.jpg">
+                                <source src="images/video-thuml.mp4" type="video/mp4">
+                            </video>
                             <button type="button" class="customer-feature__play" aria-label="Phát video"><i
                                     class="fa-solid fa-play"></i></button>
                         </div>
@@ -368,8 +412,12 @@
                 <div class="row customer-feature g-4 g-xl-5 align-items-stretch">
                     <div class="col-lg-6">
                         <div class="customer-feature__media-wrap">
-                            <img class="customer-feature__media" src="images/partners/story-video.jpg" width="645"
+                            <img class="customer-feature__poster" src="images/partners/story-video.jpg" width="645"
                                 height="380" alt="">
+                            <video class="customer-feature__video" playsinline controls preload="metadata"
+                                poster="images/partners/story-video.jpg">
+                                <source src="images/video-thuml.mp4" type="video/mp4">
+                            </video>
                             <button type="button" class="customer-feature__play" aria-label="Phát video"><i
                                     class="fa-solid fa-play"></i></button>
                         </div>
@@ -393,8 +441,12 @@
                 <div class="row customer-feature g-4 g-xl-5 align-items-stretch">
                     <div class="col-lg-6">
                         <div class="customer-feature__media-wrap">
-                            <img class="customer-feature__media" src="images/partners/story-video.jpg" width="645"
+                            <img class="customer-feature__poster" src="images/partners/story-video.jpg" width="645"
                                 height="380" alt="">
+                            <video class="customer-feature__video" playsinline controls preload="metadata"
+                                poster="images/partners/story-video.jpg">
+                                <source src="images/video-thuml.mp4" type="video/mp4">
+                            </video>
                             <button type="button" class="customer-feature__play" aria-label="Phát video"><i
                                     class="fa-solid fa-play"></i></button>
                         </div>
@@ -408,7 +460,8 @@
                                 <p class="customer-feature__role">JOC Factory Director in VietNam</p>
                             </div>
                             <p class="customer-feature__text">Chúng tôi đánh giá cao tính chuyên nghiệp và cam kết của
-                                CNCTech Industrial, không chỉ trong xây dựng mà còn trong việc cung cấp tư vấn có giá trị
+                                CNCTech Industrial, không chỉ trong xây dựng mà còn trong việc cung cấp tư vấn có giá
+                                trị
                                 về thủ tục pháp lý, vận hành và thiết lập sản xuất ban đầu.</p>
                             <hr class="customer-feature__rule">
                         </div>
@@ -429,7 +482,8 @@
                             alt="Sirline"></div>
                     <div class="customers__logo"><img src="images/customers/logo-4.png" width="188" height="72"
                             alt="Vinamilk"></div>
-                    <div class="customers__logo"><img src="images/customers/logo-5.png" width="188" height="72" alt="Beifa">
+                    <div class="customers__logo"><img src="images/customers/logo-5.png" width="188" height="72"
+                            alt="Beifa">
                     </div>
                     <div class="customers__logo"><img src="images/customers/logo-6.png" width="188" height="72"
                             alt="ShinWon"></div>
@@ -487,8 +541,7 @@
                                 height="32" alt="">
                             <div class="contact-strip__text">
                                 <span class="contact-strip__label">Email</span>
-                                <a class="contact-strip__value"
-                                    href="mailto:hello@cisgroup.vn">hello@cisgroup.vn</a>
+                                <a class="contact-strip__value" href="mailto:hello@cisgroup.vn">hello@cisgroup.vn</a>
                             </div>
                         </div>
                         <span class="contact-strip__divider" aria-hidden="true"></span>
@@ -497,16 +550,16 @@
                             <div class="contact-strip__social">
                                 <a href="#" aria-label="Facebook"><img src="images/contact-strip/facebook-logo.svg"
                                         width="36" height="36" alt=""></a>
-                                <a href="#" aria-label="YouTube"><img src="images/contact-strip/youtube.svg"
-                                        width="36" height="36" alt=""></a>
-                                <a href="#" aria-label="LinkedIn"><img src="images/contact-strip/in-logo.svg"
-                                        width="36" height="36" alt=""></a>
+                                <a href="#" aria-label="YouTube"><img src="images/contact-strip/youtube.svg" width="36"
+                                        height="36" alt=""></a>
+                                <a href="#" aria-label="LinkedIn"><img src="images/contact-strip/in-logo.svg" width="36"
+                                        height="36" alt=""></a>
                             </div>
                         </div>
                     </div>
                     <a class="contact-strip__map" href="#" target="_blank" rel="noopener noreferrer">
-                        <img class="contact-strip__icon" src="images/contact-strip/map-red.svg" width="32"
-                            height="32" alt="">
+                        <img class="contact-strip__icon" src="images/contact-strip/map-red.svg" width="32" height="32"
+                            alt="">
                         <div class="contact-strip__text">
                             <span class="contact-strip__label">google map</span>
                             <p class="contact-strip__value">Lô F1-2-3, KCN Thăng Long Vĩnh Phúc,<br>Bình Nguyên, Phú
@@ -572,21 +625,22 @@
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">dự án</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">KCN Nam Bình Xuyên Green Park</a></li>
-                            <li><a href="#">TT Logistics quốc tế Bắc Giang</a></li>
-                            <li><a href="#">CNCTech Bá Thiện 1</a></li>
-                            <li><a href="#">Cụm CN Hợp Thịnh</a></li>
-                            <li><a href="#">Hà Nam IC</a></li>
-                            <li><a href="#">KCN Bình Xuyên</a></li>
-                            <li><a href="#">KCN Thăng Long 2</a></li>
-                            <li><a href="#">KCN Thăng Long 3</a></li>
+                            <li><a href="kcn-nam-binh-xuyen-green-park.html">KCN Nam Bình Xuyên Green Park</a></li>
+                            <li><a href="tt-logistics-bac-giang.html">TT Logistics quốc tế Bắc Giang</a></li>
+                            <li><a href="cnctech-ba-thien-1.html">CNCTech Bá Thiện 1</a></li>
+                            <li><a href="cum-cong-nghiep-hop-thinh.html">Cụm công nghiệp Hợp Thịnh</a></li>
+                            <li><a href="cnctech-ha-nam.html">CNCTech Hà Nam</a></li>
+                            <li><a href="khu-cong-nghiep-binh-xuyen.html">Khu công nghiệp Bình Xuyên</a></li>
+                            <li><a href="kcn-thang-long-2.html">Khu công nghiệp Thăng Long 2</a></li>
+                            <li><a href="kcn-thang-long-3.html">KCN Thăng Long 3</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">Tin tức</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">Tin công nghiệp</a></li>
-                            <li><a href="#">Tin tức sự kiện</a></li>
+                            <li><a href="tin-tuc-doanh-nghiep.html">Tin tức doanh nghiệp</a></li>
+                            <li><a href="#">Tin dự án</a></li>
+                            <li><a href="#">Sự kiện</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md-4 col-lg px-2">
@@ -598,9 +652,9 @@
                     <div class="col-6 col-md-4 col-lg px-2">
                         <h3 class="site-footer__col-title">Tài nguyên</h3>
                         <ul class="site-footer__links">
-                            <li><a href="#">Cẩm nang đầu tư</a></li>
-                            <li><a href="#">Nghiên cứu thị trường</a></li>
-                            <li><a href="#">Thư viện hình ảnh</a></li>
+                            <li><a href="cam-nang-dau-tu.html">Cẩm nang đầu tư</a></li>
+                            <li><a href="nghien-cuu-thi-truong.html">Nghiên cứu thị trường</a></li>
+                            <li><a href="thu-vien-anh.html">Thư viện hình ảnh</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -619,7 +673,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site-header-mobile-nav.js"></script>
     <script src="js/customers-carousel.js"></script>
+    <script src="js/customer-feature-video.js"></script>
 </body>
 
 </html>

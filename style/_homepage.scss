@@ -105,13 +105,21 @@ $stat-border: #00b97b;
     }
 
     &__lang {
-        align-items: center;
-        background: $green-50;
-        border: 0;
-        border-radius: 62px;
-        display: inline-flex;
-        gap: 4px;
-        padding: 2px 8px 2px 0;
+        position: relative;
+
+        &-toggle {
+            align-items: center;
+            background: $green-50;
+            border: 0;
+            border-radius: 62px;
+            display: inline-flex;
+            gap: 4px;
+            padding: 2px 8px 2px 0;
+
+            &::after {
+                display: none;
+            }
+        }
 
         &-flag {
             border-radius: 50%;
@@ -125,6 +133,31 @@ $stat-border: #00b97b;
             @include Medium();
             font-size: 14px;
             line-height: 22px;
+        }
+
+        &-menu {
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 168px;
+            padding: 8px;
+        }
+
+        &-option {
+            align-items: center;
+            border-radius: 6px;
+            display: flex;
+            font-size: 14px;
+            gap: 8px;
+            line-height: 22px;
+            padding: 8px 12px;
+
+            &.is-active,
+            &:hover,
+            &:focus {
+                background: $green-50;
+                color: $black;
+            }
         }
     }
 
@@ -186,9 +219,7 @@ $stat-border: #00b97b;
         max-width: 360px;
         padding: 12px;
 
-        > li + li {
-            margin-top: 8px;
-        }
+       
     }
 
     &__submenu-link {
@@ -221,19 +252,23 @@ $stat-border: #00b97b;
 .hero {
     position: relative;
 
-    &__media {
-        display: block;
-        width: 100%;
-    }
-
-    &__overlay {
+    &::after {
         background: linear-gradient(180deg,
                 rgba(30, 30, 30, 0) 61.58%,
                 rgba(30, 30, 30, 0.6) 82.74%,
                 rgba(30, 30, 30, 0.8) 100%);
+        content: '';
         inset: 0;
         pointer-events: none;
         position: absolute;
+        z-index: 1;
+    }
+
+    &__media {
+        display: block;
+        position: relative;
+        width: 100%;
+        z-index: 0;
     }
 
     &__curve {
@@ -244,6 +279,7 @@ $stat-border: #00b97b;
         left: 0;
         position: absolute;
         right: 0;
+        z-index: 2;
     }
 }
 
@@ -654,7 +690,7 @@ $stat-border: #00b97b;
         background: $green-500;
         border-color: $green-500;
         min-height: 44px;
-        padding: 12px 8px 12px 16px;
+        padding: 6px 8px 6px 16px;
     }
 }
 
@@ -670,6 +706,17 @@ $stat-border: #00b97b;
         min-height: 360px;
         position: relative;
         width: 100%;
+
+        &::after {
+            background: linear-gradient(181.502deg,
+                    rgba(4, 17, 31, 0) 55.321%,
+                    rgba(4, 17, 31, 0.8) 80.764%);
+            content: '';
+            inset: 0;
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+        }
     }
 
     &__bgs {
@@ -696,34 +743,94 @@ $stat-border: #00b97b;
         }
     }
 
-    &__overlay {
-        background: linear-gradient(181.502deg,
-                rgba(4, 17, 31, 0) 55.321%,
-                rgba(4, 17, 31, 0.8) 80.764%);
-        inset: 0;
-        pointer-events: none;
-        position: absolute;
-        z-index: 1;
-    }
-
     &__labels {
         align-items: flex-end;
         bottom: 0;
         display: flex;
         gap: 16px;
         left: 50%;
-        max-width: 1856px;
+        // max-width: 1856px;
         padding: 0 32px;
         position: absolute;
         transform: translateX(-50%);
         width: 100%;
-        z-index: 1;
+        z-index: 2;
+
+        &.owl-carousel {
+            display: block;
+            overflow: hidden;
+
+            .owl-stage-outer {
+                overflow: hidden;
+            }
+
+            .owl-stage {
+                align-items: flex-end;
+                display: flex;
+            }
+
+            .owl-item {
+                align-items: flex-end;
+                display: flex;
+
+                &:last-child {
+                    margin-right: 0 !important;
+                }
+            }
+        }
 
         @media (max-width: 991.98px) {
             align-items: stretch;
             flex-direction: column;
             gap: 0;
             padding: 0 16px;
+        }
+    }
+
+    &__nav {
+        align-items: center;
+        display: flex;
+        inset: 0;
+        justify-content: space-between;
+        padding: 0 1.67%;
+        pointer-events: none;
+        position: absolute;
+        z-index: 3;
+
+        @media (max-width: 991.98px) {
+            display: none;
+        }
+    }
+
+    &__nav-btn {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        flex-shrink: 0;
+        height: 48px;
+        padding: 0;
+        pointer-events: auto;
+        transition: opacity 0.2s ease;
+        width: 48px;
+
+        img {
+            display: block;
+            height: 48px;
+            width: 48px;
+        }
+
+        &--next img {
+            transform: rotate(180deg);
+        }
+
+        &.is-disabled {
+            cursor: default;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        &:not(.is-disabled):hover {
+            opacity: 0.85;
         }
     }
 
@@ -735,15 +842,17 @@ $stat-border: #00b97b;
         flex-direction: column;
         gap: 20px;
         min-width: 0;
-        padding: 32px 26px 24px;
+        padding: 32px 32px 24px;
         position: relative;
+        width: 100%;
         transition:
             background-color 0.25s ease,
             border-radius 0.25s ease,
             box-shadow 0.25s ease;
 
         &:hover,
-        &:focus-within {
+        &:focus-within,
+        &.is-active {
             background: $green-500;
             border-radius: 16px 16px 0 0;
             border-top-color: $green-500;
@@ -762,7 +871,8 @@ $stat-border: #00b97b;
             width: 100%;
 
             &:hover,
-            &:focus-within {
+            &:focus-within,
+            &.is-active {
                 border-radius: 0;
             }
         }
@@ -833,20 +943,24 @@ $stat-border: #00b97b;
     position: relative;
     width: 100%;
 
-    &__img {
-        display: block;
-    }
-
-    &__overlay {
+    &::after {
         background: linear-gradient(152.78deg,
                 rgba(0, 0, 0, 0) 65.841%,
                 rgba(0, 0, 0, 0.5) 95.339%);
+        content: '';
         height: 596px;
         left: 0;
         pointer-events: none;
         position: absolute;
         top: 0;
         width: 100%;
+        z-index: 1;
+    }
+
+    &__img {
+        display: block;
+        position: relative;
+        z-index: 0;
     }
 
     &__panel {
@@ -864,7 +978,7 @@ $stat-border: #00b97b;
         position: absolute;
         transform: translateX(-50%);
         width: calc(100% - 32px);
-        z-index: 1;
+        z-index: 2;
 
         &::before {
             background: url('../images/bg-layer.png') left center / 900px 140px no-repeat;
@@ -922,7 +1036,6 @@ $stat-border: #00b97b;
 .project-card {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
     height: 413px;
     overflow: hidden;
     position: relative;
@@ -931,6 +1044,13 @@ $stat-border: #00b97b;
     &:hover,
     &:focus-within {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    &__link {
+        color: inherit;
+        display: block;
+        height: 100%;
+        text-decoration: none;
     }
 
     &__img {
@@ -989,7 +1109,6 @@ $stat-border: #00b97b;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
-        pointer-events: none;
         transition:
             max-height 0.35s ease,
             margin-top 0.25s ease,
@@ -1006,7 +1125,6 @@ $stat-border: #00b97b;
         margin-top: 12px;
         max-height: 44px;
         opacity: 1;
-        pointer-events: auto;
     }
 }
 
@@ -1521,8 +1639,11 @@ $news-red: #e44119;
         display: block;
         height: auto;
         width: 100%;
+        transition: all .5s ease-in-out;
     }
-
+    &:hover &__img {
+        transform: scale(1.05);
+    }
     &__body {
         display: flex;
         flex-direction: column;
@@ -2003,15 +2124,6 @@ $news-red: #e44119;
         text-align: left;
     }
 
-    .site-header__right {
-        align-items: stretch;
-        width: 100%;
-    }
-
-    .site-header__nav {
-        width: 100%;
-    }
-
     .project-featured {
         display: grid;
         height: auto;
@@ -2026,7 +2138,7 @@ $news-red: #e44119;
         width: 100%;
     }
 
-    .project-featured__overlay {
+    .project-featured::after {
         grid-column: 1;
         grid-row: 1;
         height: auto;
