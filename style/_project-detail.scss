@@ -27,7 +27,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $black;
         font-size: clamp(28px, 4vw, 40px);
         line-height: 1.2;
@@ -147,7 +147,7 @@
     }
 
     &__area-value {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $red;
         font-size: 32px;
         line-height: 40px;
@@ -392,7 +392,7 @@
     }
 
     &__value {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $green;
         font-size: 20px;
         line-height: 28px;
@@ -416,7 +416,7 @@
             }
 
             .nav-link {
-                @include Mona-Bold();
+                @include Mona-SemiBold();
                 background: transparent;
                 border: 0;
                 border-radius: 40px;
@@ -520,7 +520,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: clamp(28px, 4vw, 36px);
         line-height: 44px;
@@ -668,7 +668,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $green;
         font-size: 20px;
         line-height: 26px;
@@ -822,7 +822,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: 24px;
         line-height: 32px;

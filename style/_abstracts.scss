@@ -41,9 +41,15 @@ $container-pad: 15px;
     font-family: 'Mona-Medium';
     src: url('../webfonts/MonaSans-Medium.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Mona-Bold';
     src: url('../webfonts/MonaSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Mona-SemiBold';
+    src: url('../webfonts/MonaSans-SemiBold.ttf') format('truetype');
 }
 
 
@@ -56,8 +62,13 @@ $container-pad: 15px;
     font-family: 'Mona-Medium';
 }
 @mixin Mona-Bold {
-    font-family: 'Mona-Bold';
+    @include Mona-SemiBold();
 }
+
+@mixin Mona-SemiBold {
+    font-family: 'Mona-SemiBold';
+}
+
 
 
 

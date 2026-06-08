@@ -83,7 +83,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: clamp(32px, 5vw, 48px);
         line-height: 1.17;
@@ -118,7 +118,7 @@
     }
 
     &__map-note {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $green-100;
         font-size: 12px;
         line-height: 20px;
@@ -165,7 +165,7 @@
     }
 
     &__name {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $red;
         flex-shrink: 0;
         font-size: 28px;

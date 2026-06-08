@@ -16,7 +16,7 @@ $stat-border: #00b97b;
 // Typography helpers (Mona Sans webfonts)
 .t-heading-1,
 .t-heading-3 {
-    @include Mona-Bold();
+    @include Mona-SemiBold();
     color: $black;
     margin: 0;
     text-transform: uppercase;
@@ -323,7 +323,7 @@ $stat-border: #00b97b;
         padding: 24px;
 
         &__value {
-            @include Mona-Bold();
+            @include Mona-SemiBold();
             align-items: baseline;
             color: $red;
             display: flex;
@@ -403,7 +403,7 @@ $stat-border: #00b97b;
     }
 
     &__label {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         background: $green-dark;
         border: 1px solid #fff;
         border-radius: 24px;
@@ -617,7 +617,7 @@ $stat-border: #00b97b;
     }
 
     &__island-label {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $green-600;
         font-size: 12px;
         line-height: 14px;
@@ -744,9 +744,11 @@ $stat-border: #00b97b;
     }
 
     &__labels {
+        align-items: flex-end;
         bottom: 0;
+        display: flex;
+        gap: 16px;
         left: 50%;
-        // max-width: 1856px;
         padding: 0 32px;
         position: absolute;
         transform: translateX(-50%);
@@ -761,6 +763,11 @@ $stat-border: #00b97b;
                 overflow: hidden;
             }
 
+            .owl-stage {
+                align-items: flex-end;
+                display: flex;
+            }
+
             .owl-item {
                 align-items: flex-end;
                 display: flex;
@@ -772,50 +779,12 @@ $stat-border: #00b97b;
         }
 
         @media (max-width: 991.98px) {
+            align-items: stretch;
+            flex-direction: column;
+            gap: 0;
             left: 0;
-            padding: 0;
+            padding: 0 16px;
             transform: none;
-
-            &.owl-carousel {
-                .owl-stage-outer {
-                    width: 100%;
-                }
-
-                .owl-item {
-                    flex-shrink: 0;
-                }
-            }
-        }
-    }
-
-    &__dots {
-        display: none;
-        gap: 8px;
-        justify-content: center;
-        margin: 0;
-        padding: 16px 0 0;
-
-        @media (max-width: 991.98px) {
-            display: flex;
-        }
-
-        button {
-            background: $green-200;
-            border: 0;
-            border-radius: 6px;
-            cursor: pointer;
-            display: block;
-            flex-shrink: 0;
-            height: 10px;
-            padding: 0;
-            transition: width 0.25s ease, background-color 0.25s ease;
-            width: 10px;
-
-            &.is-active,
-            &:hover {
-                background: $green;
-                width: 37px;
-            }
         }
     }
 
@@ -908,9 +877,7 @@ $stat-border: #00b97b;
         }
 
         @media (max-width: 991.98px) {
-            box-sizing: border-box;
-            flex: 0 0 auto;
-            max-width: none;
+            flex: none;
             padding: 20px 16px 16px;
             width: 100%;
 
@@ -923,7 +890,7 @@ $stat-border: #00b97b;
     }
 
     &__label-title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: 20px;
         line-height: 28px;
@@ -1050,7 +1017,7 @@ $stat-border: #00b97b;
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: 24px;
         line-height: 32px;
@@ -1122,7 +1089,7 @@ $stat-border: #00b97b;
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $black;
         font-size: 20px;
         line-height: 28px;
@@ -1248,7 +1215,7 @@ $stat-border: #00b97b;
         }
 
         &-value {
-            @include Mona-Bold();
+            @include Mona-SemiBold();
             font-size: 48px;
             line-height: 56px;
             margin: 0;
@@ -1360,6 +1327,7 @@ $stat-border: #00b97b;
         gap: 40px;
         position: relative;
         z-index: 1;
+        margin-bottom: 40px;
     }
 
     &__title {
@@ -1367,17 +1335,35 @@ $stat-border: #00b97b;
     }
 
     &__logos {
-        &.owl-carousel .owl-item {
+        overflow: hidden;
+        width: 100%;
+
+        &-track {
+            animation: customers-logos-marquee 35s linear infinite;
             display: flex;
+            width: max-content;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        &-group {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            gap: 32px;
+            padding-right: 32px;
         }
     }
 
     &__logo {
         align-items: center;
         aspect-ratio: 188.25 / 72;
-        display: flex;
+        display: inline-flex;
+        flex: 0 0 auto;
         justify-content: center;
-        width: 100%;
+        width: 188px;
 
         img {
             display: block;
@@ -1419,6 +1405,16 @@ $stat-border: #00b97b;
                 width: 37px;
             }
         }
+    }
+}
+
+@keyframes customers-logos-marquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -2094,7 +2090,7 @@ $news-red: #e44119;
     }
 
     &__group-label {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #295e30;
         font-size: 18px;
         line-height: 30px;
@@ -2110,7 +2106,7 @@ $news-red: #e44119;
     }
 
     &__col-title {
-        @include Mona-Bold();    white-space: nowrap;
+        @include Mona-SemiBold();    white-space: nowrap;
         color: $black;
         font-size: 18px;
         line-height: 26px;

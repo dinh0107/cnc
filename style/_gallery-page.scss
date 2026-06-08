@@ -80,7 +80,7 @@
     }
 
     &__hover-label {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: 14px;
         line-height: 22px;

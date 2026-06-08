@@ -54,7 +54,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $black;
         font-size: 32px;
         line-height: 40px;
@@ -101,7 +101,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #232323;
         font-size: 26px;
         line-height: 34px;

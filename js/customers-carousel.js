@@ -1,40 +1,40 @@
 (function ($) {
-    if (typeof $.fn.owlCarousel !== 'function') {
-        return;
+    function initCustomersLogosMarquee() {
+        document.querySelectorAll('.customers__logos').forEach(function (el) {
+            if (el.dataset.marqueeReady === 'true') {
+                return;
+            }
+
+            var logos = Array.from(el.querySelectorAll(':scope > .customers__logo'));
+
+            if (!logos.length) {
+                return;
+            }
+
+            var track = document.createElement('div');
+            track.className = 'customers__logos-track';
+
+            var groupA = document.createElement('div');
+            groupA.className = 'customers__logos-group';
+            logos.forEach(function (logo) {
+                groupA.appendChild(logo);
+            });
+
+            track.appendChild(groupA);
+            track.appendChild(groupA.cloneNode(true));
+            el.appendChild(track);
+            el.dataset.marqueeReady = 'true';
+        });
     }
 
-    var $logos = $('.customers__logos');
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCustomersLogosMarquee);
+    } else {
+        initCustomersLogosMarquee();
+    }
 
-    if ($logos.length) {
-        $logos.owlCarousel({
-            autoplay: true,
-            autoplayHoverPause: true,
-            autoplayTimeout: 5000,
-            loop: true,
-            margin: 16,
-            nav: false,
-            dots: false,
-            slideBy: 1,
-            smartSpeed: 450,
-            responsive: {
-                0: {
-                    items: 2,
-                    margin: 16
-                },
-                576: {
-                    items: 3,
-                    margin: 24
-                },
-                992: {
-                    items: 4,
-                    margin: 24
-                },
-                1200: {
-                    items: 7,
-                    margin: 32
-                }
-            }
-        });
+    if (typeof $.fn.owlCarousel !== 'function') {
+        return;
     }
 
     var $carousel = $('.customers-testimonials');

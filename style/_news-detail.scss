@@ -84,7 +84,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: clamp(28px, 4vw, 48px);
         line-height: 1.17;

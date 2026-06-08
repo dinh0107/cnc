@@ -189,7 +189,7 @@
     }
 
     &__title {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: #fff;
         font-size: 24px;
         line-height: 32px;
@@ -302,7 +302,7 @@
     }
 
     &__label {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $green;
         font-size: 24px;
         line-height: 32px;
@@ -325,7 +325,7 @@
     }
 
     &__office {
-        @include Mona-Bold();
+        @include Mona-SemiBold();
         color: $black;
         font-size: 24px;
         line-height: 32px;

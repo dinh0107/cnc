@@ -3,11 +3,8 @@
         return;
     }
 
+    var ITEMS_PER_PAGE = 4;
     var DESKTOP_MQ = window.matchMedia('(min-width: 992px)');
-
-    function getItemsPerPage() {
-        return DESKTOP_MQ.matches ? 4 : 1;
-    }
 
     function initShowcase($showcase) {
         var slideEl = $showcase.find('.services-showcase__slide').get(0);
@@ -16,7 +13,6 @@
         }
 
         var $labelsWrap = $showcase.find('.services-showcase__labels');
-        var $dotsContainer = $showcase.find('.services-showcase__dots');
         var $prevBtn = $showcase.find('.services-showcase__nav-btn--prev');
         var $nextBtn = $showcase.find('.services-showcase__nav-btn--next');
         var bgs = slideEl.querySelectorAll('.services-showcase__bg');
@@ -118,12 +114,11 @@
             labelIndex = -1;
             pageIndex = nextPage;
             $labelsWrap.trigger('to.owl.carousel', [nextPage, animate ? 450 : 0, true]);
-            syncDots();
             updateNavState();
         }
 
         function updateNavState() {
-            if (pageCount <= 1) {
+            if (!DESKTOP_MQ.matches || pageCount <= 1) {
                 $prevBtn.addClass('is-disabled');
                 $nextBtn.addClass('is-disabled');
                 return;
@@ -131,28 +126,6 @@
 
             $prevBtn.toggleClass('is-disabled', pageIndex <= 0);
             $nextBtn.toggleClass('is-disabled', pageIndex >= pageCount - 1);
-        }
-
-        function buildDots() {
-            $dotsContainer.empty();
-
-            if (DESKTOP_MQ.matches || pageCount <= 1) {
-                return;
-            }
-
-            for (var i = 0; i < pageCount; i++) {
-                $dotsContainer.append($('<button type="button">'));
-            }
-        }
-
-        function syncDots() {
-            var $dots = $dotsContainer.children('button');
-
-            if (!$dots.length) {
-                return;
-            }
-
-            $dots.removeClass('is-active').eq(pageIndex).addClass('is-active');
         }
 
         function bindLabelInteractions() {
@@ -163,12 +136,6 @@
 
                 label.onfocusin = function () {
                     activateLabel(index);
-                };
-
-                label.onmouseleave = function () {
-                    if (!label.classList.contains('is-active')) {
-                        return;
-                    }
                 };
             });
         }
@@ -181,68 +148,55 @@
             $labelsWrap.trigger('destroy.owl.carousel');
             $labelsWrap.removeClass('owl-carousel owl-loaded');
             $labelsWrap.off('.owl.carousel');
-            $dotsContainer.empty();
         }
 
         function initOwl() {
             destroyOwl();
             bindLabelInteractions();
 
-            var itemsPerPage = getItemsPerPage();
-            pageCount = Math.ceil(getLabels().length / itemsPerPage);
+            pageCount = Math.ceil(getLabels().length / ITEMS_PER_PAGE);
             pageIndex = 0;
+
+            if (!DESKTOP_MQ.matches) {
+                clearLabelActive();
+                labelIndex = -1;
+                applyBg(defaultBg);
+                updateNavState();
+                return;
+            }
 
             $labelsWrap.addClass('owl-carousel');
             $labelsWrap.owlCarousel({
                 loop: false,
                 rewind: false,
-                margin: 0,
+                margin: 16,
                 nav: false,
                 dots: false,
-                slideBy: 1,
-                items: 1,
+                slideBy: 'page',
+                items: ITEMS_PER_PAGE,
                 smartSpeed: 450,
                 mouseDrag: false,
-                touchDrag: true,
-                pullDrag: true,
+                touchDrag: false,
+                pullDrag: false,
                 freeDrag: false,
-                stagePadding: 0,
-                responsive: {
-                    992: {
-                        items: 4,
-                        slideBy: 'page',
-                        margin: 16,
-                        touchDrag: false,
-                        pullDrag: false
-                    }
-                }
+                stagePadding: 0
             });
 
-            buildDots();
-
-            $labelsWrap.on('changed.owl.carousel initialized.owl.carousel refreshed.owl.carousel', function (event) {
+            $labelsWrap.on('changed.owl.carousel initialized.owl.carousel', function (event) {
                 if (!event.namespace) {
                     return;
                 }
 
-                var owl = event.relatedTarget;
-                var itemsPerPage = owl.options.items;
-                pageCount = Math.ceil(getLabels().length / itemsPerPage);
-                pageIndex = owl.relative(owl.current());
+                pageIndex = event.relatedTarget.relative(event.item.index);
                 clearLabelActive();
                 labelIndex = -1;
-                buildDots();
-                syncDots();
                 updateNavState();
             });
 
             clearLabelActive();
             labelIndex = -1;
             applyBg(defaultBg);
-
-            requestAnimationFrame(function () {
-                $labelsWrap.trigger('refresh.owl.carousel');
-            });
+            updateNavState();
         }
 
         slideEl.addEventListener('mouseleave', function () {
@@ -272,10 +226,6 @@
             }
 
             goToPage(pageIndex + 1, true);
-        });
-
-        $dotsContainer.off('click.servicesShowcase').on('click.servicesShowcase', 'button', function () {
-            goToPage($(this).index(), true);
         });
 
         initOwl();
