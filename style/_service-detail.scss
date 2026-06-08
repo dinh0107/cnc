@@ -1,0 +1,513 @@
+// ——— Chi tiết dịch vụ ———
+
+.service-detail {
+    &__intro {
+        background: $gray-bg;
+        padding: 64px 0;
+    }
+
+    &__intro-row {
+        --bs-gutter-x: 30px;
+        align-items: center;
+    }
+
+    &__title {
+        @include Mona-SemiBold();
+        color: $black;
+        font-size: 36px;
+        line-height: 44px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 40px;
+
+        p {
+            @include Mona-Regular();
+            color: $black;
+            font-size: 16px;
+            line-height: 24px;
+            margin: 0;
+        }
+    }
+
+    &__stats {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__stat-value {
+        @include Mona-SemiBold();
+        align-items: flex-end;
+        color: $green;
+        display: flex;
+        font-size: 46px;
+        gap: 4px;
+        line-height: 54px;
+        margin: 0;
+        text-transform: uppercase;
+
+        small {
+            @include Mona-Medium();
+            font-size: 24px;
+            line-height: 40px;
+        }
+    }
+
+    &__stat-label {
+        @include Mona-Medium();
+        color: #595959;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__stat-divider {
+        align-self: stretch;
+        background: #d8d8d8;
+        flex-shrink: 0;
+        margin: 8px 0;
+        width: 1px;
+    }
+
+    &__cta {
+        margin-top: 40px;
+    }
+
+    &__media {
+        height: 464px;
+        position: relative;
+        width: 100%;
+
+        @media (max-width: 991.98px) {
+            height: 320px;
+            margin-top: 32px;
+        }
+
+        &::before {
+            background: #dceadc;
+            border-radius: 16px;
+            bottom: 0;
+            content: '';
+            left: 12.71%;
+            position: absolute;
+            right: 0;
+            top: 12.74%;
+            z-index: 0;
+        }
+    }
+
+    &__photo {
+        border-radius: 16px;
+        bottom: 3.85%;
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 2.48%;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &__section {
+        padding: 64px 0;
+
+        &--gray {
+            background: $gray-bg;
+        }
+
+        &--white {
+            background: #fff;
+        }
+    }
+
+    &__section-title {
+        margin-bottom: 40px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.service-process {
+    &__steps {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        width: 100%;
+
+        @media (min-width: 1200px) {
+            overflow: visible;
+        }
+    }
+
+    &__step {
+        align-items: center;
+        display: flex;
+        flex: 1 0 200px;
+        gap: 12px;
+        min-width: 200px;
+    }
+
+    &__chevron {
+        background: $green-50;
+        clip-path: polygon(0 0, 72% 0, 100% 50%, 72% 100%, 0 100%, 28% 50%);
+        flex-shrink: 0;
+        height: 90px;
+        width: 40px;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 16px;
+        min-width: 0;
+    }
+
+    &__icon {
+        display: block;
+        height: 40px;
+        width: 40px;
+    }
+
+    &__title {
+        @include Mona-SemiBold();
+        color: $black;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}
+
+.service-gallery {
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &__tabs {
+        --bs-nav-tabs-border-width: 0;
+        --bs-nav-tabs-border-color: transparent;
+        --bs-nav-tabs-border-radius: 0;
+        border: 0;
+        display: flex;
+        margin-bottom: 0;
+        width: 100%;
+
+        @media (max-width: 991.98px) {
+            flex-direction: column;
+        }
+
+        .nav-item {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .nav-link {
+            @include Mona-Medium();
+            align-items: center;
+            background: #fff;
+            border: 0;
+            border-bottom: 1px solid $gray-3;
+            border-right: 1px solid $gray-3;
+            border-radius: 0;
+            color: $black;
+            display: flex;
+            font-size: 18px;
+            justify-content: center;
+            line-height: 26px;
+            margin: 0;
+            min-height: 88px;
+            padding: 16px;
+            text-align: center;
+            transition: background 0.25s ease, color 0.25s ease;
+            width: 100%;
+
+            &:hover {
+                border-color: $gray-3;
+                color: $black;
+            }
+
+            &:focus-visible {
+                outline: 2px solid rgba(6, 96, 66, 0.35);
+                outline-offset: -2px;
+            }
+
+            &.active {
+                background: $gradient;
+                border-bottom-color: transparent;
+                color: #fff;
+            }
+
+            @media (max-width: 991.98px) {
+                border-right: 0;
+                min-height: 64px;
+            }
+        }
+
+        .nav-item:last-child .nav-link {
+            border-right: 0;
+        }
+    }
+
+    &__panel {
+        background: #fff;
+        padding: 40px;
+        position: relative;
+    }
+
+    &__slider {
+        &.owl-carousel .owl-stage-outer {
+            overflow: hidden;
+        }
+
+        &.owl-carousel .owl-item {
+            display: flex;
+        }
+    }
+
+    &__slide {
+        border: 1px solid #bfbfbf;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        left: 40px;
+        pointer-events: none;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    &__arrow {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        display: block;
+        flex-shrink: 0;
+        height: 48px;
+        padding: 0;
+        pointer-events: auto;
+        width: 48px;
+
+        img {
+            display: block;
+            height: 48px;
+            width: 48px;
+        }
+
+        &--prev {
+            transform: translateX(-50%);
+        }
+
+        &--next {
+            transform: translateX(50%);
+
+            img {
+                transform: scaleX(-1);
+            }
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.35;
+        }
+
+        &:not(:disabled):hover img {
+            filter: brightness(0.95);
+        }
+    }
+}
+
+.service-partners {
+    &__logos {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__logo {
+        align-items: center;
+        display: flex;
+        flex: 1 1 120px;
+        justify-content: center;
+        max-width: 188px;
+        min-height: 72px;
+
+        img {
+            display: block;
+            max-height: 72px;
+            max-width: 100%;
+            width: auto;
+        }
+    }
+}
+
+.service-featured-card {
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+
+    &__link {
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+    }
+
+    &__media {
+        height: 248px;
+        margin-bottom: -32px;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 16px 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__badge {
+        align-items: center;
+        background: $gradient;
+        border-radius: 64px;
+        display: inline-flex;
+        padding: 14px;
+        width: fit-content;
+
+        img {
+            display: block;
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+    &__title {
+        @include Mona-SemiBold();
+        color: $black;
+        font-size: 20px;
+        line-height: 28px;
+        margin: 0;
+    }
+
+    &__loc {
+        @include Mona-Regular();
+        align-items: flex-start;
+        color: $black;
+        display: flex;
+        font-size: 16px;
+        gap: 16px;
+        line-height: 24px;
+        margin: 0;
+
+        img {
+            flex-shrink: 0;
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
+
+.service-carousel {
+    &.owl-carousel .owl-stage-outer {
+        overflow: hidden;
+    }
+
+    &.owl-carousel .owl-item {
+        display: flex;
+    }
+
+    .service-featured-card {
+        width: 100%;
+    }
+
+    &__dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 24px;
+
+        button {
+            background: $green-100;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+            height: 8px;
+            padding: 0;
+            width: 8px;
+
+            &.is-active {
+                background: #295e30;
+                width: 37px;
+            }
+        }
+    }
+}
+
+.service-contact-card {
+    .contact-form__captcha {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 0;
+    }
+
+    .contact-form__captcha-img {
+        display: block;
+        height: 60px;
+        width: 216px;
+    }
+
+    .contact-form__captcha-hint {
+        @include Mona-Regular();
+        color: $black;
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0;
+    }
+}
