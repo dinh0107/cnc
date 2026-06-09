@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* CNC Industrial theme — bundled page scripts */
-
 (function () {
     var nav = document.querySelector('.site-header .main-nav');
     if (!nav) return;
@@ -37,6 +34,11 @@
     });
 })();
 
+/* --------------------------------------------------------------------------
+   2. index.html — stat-counter
+   Section: Về chúng tôi / chỉ số (.stat-card__num[data-count])
+   Chức năng: đếm số khi scroll vào viewport
+   -------------------------------------------------------------------------- */
 (function () {
     var nums = document.querySelectorAll('.stat-card__num[data-count]');
     if (!nums.length) return;
@@ -85,6 +87,12 @@
     });
 })();
 
+/* --------------------------------------------------------------------------
+   3. Trang dự án — project-tech-specs
+   Trang: cnctech-ba-thien-1.html, ...
+   Section: Bảng thông số kỹ thuật (.project-tech-specs)
+   Chức năng: mở / thu gọn bảng
+   -------------------------------------------------------------------------- */
 (function () {
     var blocks = document.querySelectorAll('.project-tech-specs');
     if (!blocks.length) return;
@@ -107,7 +115,11 @@
     });
 })();
 
+/* --------------------------------------------------------------------------
+   4. Marquee logos
+   -------------------------------------------------------------------------- */
 (function () {
+    /* 4a. index.html — customers marquee (.customers__logos) */
     function initCustomersLogosMarquee() {
         document.querySelectorAll('.customers__logos').forEach(function (el) {
             if (el.dataset.marqueeReady === 'true') return;
@@ -131,6 +143,7 @@
         });
     }
 
+    /* 4b. Trang dự án — project-customers-marquee (.project-customers__logos) */
     function initProjectCustomersMarquee() {
         document.querySelectorAll('.project-customers__logos').forEach(function (el) {
             if (el.dataset.marqueeReady === 'true') return;
@@ -166,9 +179,17 @@
     }
 })();
 
+/* --------------------------------------------------------------------------
+   jQuery modules (cần jQuery; carousel cần thêm Owl Carousel)
+   -------------------------------------------------------------------------- */
 (function ($) {
-  'use strict';
+    'use strict';
 
+    /* ------------------------------------------------------------------------
+       5. dich-vu.html — services-milestones
+       Section: Cột mốc phát triển (.services-milestones)
+       Chức năng: accordion mở/đóng từng giai đoạn
+       ------------------------------------------------------------------------ */
     $('.services-milestones').each(function () {
         var $wrap = $(this);
 
@@ -186,11 +207,19 @@
         });
     });
 
+    /* ------------------------------------------------------------------------
+       6. tin-tuc-doanh-nghiep.html — news-page filter
+       Section: Bộ lọc danh mục tin (.news-page__filter)
+       ------------------------------------------------------------------------ */
     $('.news-page__filter').on('click', function () {
         $('.news-page__filter').removeClass('is-active').attr('aria-selected', 'false');
         $(this).addClass('is-active').attr('aria-selected', 'true');
     });
 
+    /* ------------------------------------------------------------------------
+       7. doi-tac-khach-hang.html — customer-feature-video
+       Section: Video khách hàng (.customer-feature__media-wrap)
+       ------------------------------------------------------------------------ */
     $('.customer-feature__media-wrap').each(function () {
         var $wrap = $(this);
         var $poster = $wrap.find('.customer-feature__poster');
@@ -246,6 +275,7 @@
         return;
     }
 
+    /* Helpers dùng chung cho các carousel */
     function buildDots($wrap, count) {
         $wrap.empty();
 
@@ -282,6 +312,11 @@
         return $wrap.children('button').first().addClass('is-active').end();
     }
 
+    /* ------------------------------------------------------------------------
+       8. index.html — services-showcase
+       Section: Dịch vụ hero (.services-showcase)
+       Chức năng: hover label đổi ảnh nền, phân trang label desktop
+       ------------------------------------------------------------------------ */
     var ITEMS_PER_PAGE = 4;
     var DESKTOP_MQ = window.matchMedia('(min-width: 992px)');
 
@@ -504,6 +539,11 @@
         initShowcase($(this));
     });
 
+    /* ------------------------------------------------------------------------
+       9. project-carousel
+       Trang: index, dich-vu, giai-phap-ha-tang-kcn, các trang KCN/dự án...
+       Section: Carousel dự án (.project-carousel)
+       ------------------------------------------------------------------------ */
     $('.project-carousel').each(function () {
         var $carousel = $(this);
         var $dotsWrap = $carousel.siblings('.project-carousel__dots').first();
@@ -516,12 +556,16 @@
         if (slideCount === 0) return;
 
         var $dots = buildDots($dotsWrap, slideCount);
+        var isServiceCarousel = $carousel.hasClass('service-carousel');
+        // Với carousel dịch vụ (3 slide), loop gây lộ mép slide clone khi hiển thị đủ 3 item
+        var loop = slideCount > 1 && !(isServiceCarousel && slideCount <= 3);
 
         $carousel.owlCarousel({
             autoplay: true,
             autoplayHoverPause: true,
             autoplayTimeout: 5000,
-            loop: slideCount > 1,
+            loop: loop,
+            rewind: !loop && slideCount > 1,
             margin: 20,
             nav: false,
             dots: false,
@@ -547,6 +591,55 @@
         });
     });
 
+    /* ------------------------------------------------------------------------
+       9b. service-solutions-carousel
+       Trang: thiet-lap-he-thong-ky-thuat-noi-that-nha-xuong.html
+       Section: Giải pháp toàn diện (.service-solutions-carousel)
+       ------------------------------------------------------------------------ */
+    $('.service-solutions-carousel').each(function () {
+        var $carousel = $(this);
+        var $dotsWrap = $carousel.siblings('.service-solutions__dots').first();
+        var slideCount = $carousel.children().length;
+
+        if (slideCount === 0) return;
+
+        var $dots = buildDots($dotsWrap, slideCount);
+
+        $carousel.owlCarousel({
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 5000,
+            loop: slideCount > 1,
+            margin: 30,
+            nav: false,
+            dots: false,
+            slideBy: 1,
+            smartSpeed: 450,
+            responsive: {
+                0: { items: 1, margin: 16 },
+                768: { items: 2, margin: 24 },
+                1200: { items: 2, margin: 30 }
+            }
+        });
+
+        function syncSolutionDots(event) {
+            if (!event.namespace || !$dots.length) return;
+            var index = event.relatedTarget.relative(event.item.index);
+            $dots.removeClass('is-active').eq(index).addClass('is-active');
+        }
+
+        $carousel.on('initialized.owl.carousel changed.owl.carousel', syncSolutionDots);
+
+        $dotsWrap.on('click', 'button', function () {
+            $carousel.trigger('to.owl.carousel', [$(this).index(), 450, true]);
+        });
+    });
+
+    /* ------------------------------------------------------------------------
+       10. index.html — customers-carousel
+       Section: Khách hàng / testimonial (.customers-testimonials)
+       Chức năng: carousel + scrollbar custom (.testimonial-card--scroll)
+       ------------------------------------------------------------------------ */
     var $customersCarousel = $('.customers-testimonials');
     var $customersDots = $('.customers__dots button');
 
@@ -621,6 +714,11 @@
         initScrollbars();
     }
 
+    /* ------------------------------------------------------------------------
+       11. news-carousel
+       Trang: index.html, tin-tuc-chi-tiet.html
+       Section: Tin tức (.news-carousel)
+       ------------------------------------------------------------------------ */
     var $newsCarousel = $('.news-carousel');
     var $newsDots = $('.news-carousel__dots button');
 
@@ -655,6 +753,12 @@
         });
     }
 
+    /* ------------------------------------------------------------------------
+       12. Trang chi tiết dịch vụ — service-gallery | giai-phap-ha-tang-kcn, thiet-ke-*, thiet-lap-*
+       9b. thiet-lap-he-thong-ky-thuat-noi-that-nha-xuong.html — service-solutions-carousel
+       Section: Hình ảnh (.service-gallery)
+       Chức năng: Bootstrap nav-tabs + Owl slider từng tab
+       ------------------------------------------------------------------------ */
     var sliderOptions = {
         dots: false,
         loop: false,
@@ -734,6 +838,10 @@
         });
     });
 
+    /* ------------------------------------------------------------------------
+       13. Trang dự án — project-gallery-carousel
+       Section: Gallery ảnh dự án (.project-gallery)
+       ------------------------------------------------------------------------ */
     $('.project-gallery').each(function () {
         var $gallery = $(this);
         var $carousel = $gallery.find('.project-gallery__carousel');
@@ -774,6 +882,10 @@
         });
     });
 
+    /* ------------------------------------------------------------------------
+       14. bao-cao-thi-truong-chi-tiet.html — market-related-carousel
+       Section: Bài liên quan (.market-related-carousel)
+       ------------------------------------------------------------------------ */
     var $marketCarousel = $('.market-related-carousel');
     var $marketWrap = $('.market-related__inner');
     var $marketDots = $marketWrap.find('.market-related__dots button');

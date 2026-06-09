@@ -25,7 +25,7 @@ function buildLogosHtml() {
             const src = `images/LOGO/${encodeURIComponent(file).replace(/%2F/g, '/')}`;
             const alt = altFromFilename(file);
 
-            return `                <div class="customers__logo"><img src="${src}" width="188" height="72" alt="${alt}"></div>`;
+            return `                <a class="customers__logo" href="#"><img src="${src}" width="188" height="72" alt="${alt}"></a>`;
         })
         .join('\n');
 }

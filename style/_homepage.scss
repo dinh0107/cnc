@@ -223,7 +223,7 @@ $stat-border: #00b97b;
     }
 
     &__submenu-link {
-        @include Mona-Regular();
+        @include Bold();
         border-radius: 4px;
         color: $black;
         display: block;
@@ -655,10 +655,31 @@ $stat-border: #00b97b;
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     text-transform: uppercase;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
     white-space: nowrap;
 
-    &:hover {
-        color: #fff;
+    &:hover,
+    &:focus-visible {
+        background: #fff;
+        border-color: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        color: $green-500;
+        transform: translateY(-3px);
+
+        .btn-see-more__icon {
+            background: $red;
+            color: #fff;
+            transform: scale(1.08);
+        }
+
+        .btn-see-more__icon i {
+            transform: translateX(4px);
+        }
     }
 
     &__icon {
@@ -670,10 +691,15 @@ $stat-border: #00b97b;
         flex-shrink: 0;
         height: 32px;
         justify-content: center;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.3s ease;
         width: 32px;
 
         i {
             font-size: 14px;
+            transition: transform 0.3s ease;
         }
 
         &--sm {
@@ -691,6 +717,25 @@ $stat-border: #00b97b;
         border-color: $green-500;
         min-height: 44px;
         padding: 6px 8px 6px 16px;
+
+        &:hover,
+        &:focus-visible {
+            background: $green-dark;
+            border-color: $green-dark;
+            box-shadow: 0 6px 20px rgba(6, 96, 66, 0.45);
+            color: #fff;
+            transform: translateY(-3px);
+
+            .btn-see-more__icon {
+                background: #fff;
+                color: $red;
+                transform: scale(1.08);
+            }
+
+            .btn-see-more__icon i {
+                transform: translateX(4px);
+            }
+        }
     }
 }
 
@@ -1363,7 +1408,12 @@ $stat-border: #00b97b;
         display: inline-flex;
         flex: 0 0 auto;
         justify-content: center;
+        text-decoration: none;
         width: 188px;
+
+        &:hover {
+            opacity: 0.85;
+        }
 
         img {
             display: block;
